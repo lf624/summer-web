@@ -114,7 +114,7 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getRequestURI();
-        if(url.equals(this.faviconPath) || url.equals(this.resourcePath)) {
+        if(url.equals(this.faviconPath) || url.startsWith(this.resourcePath)) {
             doResource(url, req, resp);
         } else {
             doService(req, resp, this.getDispatchers);
